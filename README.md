@@ -58,7 +58,7 @@ To be able to use this web app locally in a development environment you will nee
 
 ```cmd
 # Clone this repository
-git clone https://github.com/TheChirag356/Movie-Recommendation
+git clone https://github.com/TheChirag356/WatchX-Movie-and-Series-Recommendation
 
 # Go into the repository
 cd Movie-Recommendation

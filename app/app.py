@@ -22,7 +22,7 @@ def get_recommendations(title, cosine_sim):
     result.reset_index(inplace = True)
     return result
 
-netflix_data = pd.read_csv('NetflixDataset.csv',encoding='latin-1', index_col = 'Title')
+netflix_data = pd.read_csv('app/NetflixDataset.csv',encoding='latin-1', index_col = 'Title')
 netflix_data.index = netflix_data.index.str.title()
 netflix_data = netflix_data[~netflix_data.index.duplicated()]
 netflix_data.rename(columns={'View Rating':'ViewerRating'}, inplace=True)
@@ -64,9 +64,9 @@ def getvalue():
     movienames = request.form.getlist('titles')
     languages = request.form.getlist('languages')
     for moviename in movienames:
-        get_recommendations(moviename,cosine_sim2)
+        temp_result = get_recommendations(moviename, cosine_sim2)  # Store recommendations in a variable
         for language in languages:
-            df = pd.concat([result[result['Languages'].str.count(language) > 0], df], ignore_index=True)
+            df = pd.concat([temp_result[temp_result['Languages'].str.count(language) > 0], df], ignore_index=True)
     df.drop_duplicates(keep = 'first', inplace = True)
     df.sort_values(by = 'IMDb Score', ascending = False, inplace = True)
     images = df['Image'].tolist()

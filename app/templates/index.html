@@ -1,29 +1,111 @@
-<!DOCTYPE html>
+<!DOCTYPE html class="sl-theme-dark">
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Netflix Recommendation System</title>
-	<link rel="stylesheet" href="../static/stylesheets/style.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="../static/js/multiselect.min.js"></script>
-	<link rel="stylesheet" href="../static/stylesheets/multiselect.css"> 
+	<title>WatchX - Movie & Web Series Recommendation</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+		integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+		crossorigin="anonymous"></script>
+
 </head>
-<body>
+
+<body x-data="{ open: false }">
+
+	<div class="bg-gray-900">
+		<header>
+			<nav
+				x-bind:class="{ 'pb-5 md:text-sm absolute z-20 top-0 inset-x-0 bg-gray-800 rounded-xl mx-2 mt-2 md:mx-0 md:mt-0 md:relative md:bg-transparent': open, '' : !open }">
+				<div class="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
+					<div class="flex items-center justify-between py-5 md:block">
+						<a href="javascript:void(0)">
+							<img src="{{ url_for('static', filename='img/watchX.svg') }}" width="120" height="50" alt="WatchX Logo" />
+						</a>
+						<div class="md:hidden">
+							<button class="menu-btn text-gray-400 hover:text-gray-300" x-on:click="open = !open">
+								<template x-if="open">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20"
+										fill="currentColor">
+										<path fill-rule="evenodd"
+											d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+											clip-rule="evenodd" />
+									</svg>
+								</template>
+								<template x-if="!open">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+										stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+										<path stroke-linecap="round" stroke-linejoin="round"
+											d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+									</svg>
+								</template>
+							</button>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<section class="relative">
+			<div class="relative z-10 max-w-screen-xl mx-auto px-4 py-28 md:px-8">
+				<div class="space-y-5 max-w-4xl mx-auto text-center">
+					<h2 class="text-4xl text-white font-extrabold mx-auto md:text-5xl">
+						Movie & Web Series Recommendation
+					</h2>
+					<p class="max-w-2xl mx-auto text-gray-400">
+
+					</p>
+					<form x-on:submit.prevent class="justify-center items-center gap-x-3 sm:flex">
+						<input type="text" placeholder="Enter your email"
+							class="w-full px-3 py-2.5 text-gray-400 bg-gray-700 focus:bg-gray-900 duration-150 outline-none rounded-lg shadow sm:max-w-sm sm:w-auto" />
+						<button
+							class="flex items-center justify-center gap-x-2 py-2.5 px-4 mt-3 w-full text-sm text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-lg sm:mt-0 sm:w-auto">
+							Get started
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+								class="w-5 h-5">
+								<path fill-rule="evenodd"
+									d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
+									clip-rule="evenodd" />
+							</svg>
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="absolute inset-0 m-auto max-w-xs h-[357px] blur-[118px] sm:max-w-md md:max-w-lg" style="
+			background: linear-gradient(
+			  106.89deg,
+			  rgba(192, 132, 252, 0.11) 15.73%,
+			  rgba(14, 165, 233, 0.41) 15.74%,
+			  rgba(232, 121, 249, 0.26) 56.49%,
+			  rgba(79, 70, 229, 0.4) 115.91%
+			);
+		  "></div>
+		</section>
+	</div>
+
+</body>
+
+
+<!-- <body>
 	<img src="../static/stylesheets/logo.svg" />
 	<div class="content">
-	<h1>Netflix Recommendation System</h1>	
+		<h1>Netflix Recommendation System</h1>
 		<form name="passdata" action="/about" method="post">
 			<p1>Select atleast 4 TV Show/Movie Names that you like: </p1>
 			<select name="titles" multiple id="titles">
 				{% for title in titles %}
-				<option value= "{{title}}">{{title}}</option>"
+				<option value="{{title}}">{{title}}</option>"
 				{% endfor %}
 			</select>
 			<br>
 			<p1>Select Languages that you prefer: </p1>
 			<select name="languages" multiple id="languages">
 				{% for language in languages %}
-					<option value= "{{language}}">{{language}}</option>"
+				<option value="{{language}}">{{language}}</option>"
 				{% endfor %}
 			</select>
 			<br>
@@ -44,5 +126,6 @@
 			selectAll: true
 		});
 	</script>
-</body>
+</body> -->
+
 </html>

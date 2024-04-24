@@ -1,0 +1,20 @@
+body            
+{ 
+  background-image: url('../stylesheets/home-bg.jpg');
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+h1       
+{ 
+  color: #377ba8; 
+  margin-bottom: 25px; 
+  border-bottom: 2px solid #eee; 
+}
+
+.page {
+  margin: 3.5% 0 0 2.5%;
+}	
+
+.page img{
+  padding: 7px;
+}

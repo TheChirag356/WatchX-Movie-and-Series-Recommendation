@@ -1,35 +1,52 @@
-<h1 align="center">Netflix-Recommendation-System</h1>
+![WatchX Banner](/app/static/img/watchX.svg)
+<hr>
 <p><font size="3">
-A web-app which can be used to get recommendations for a series/movie, the app recommends a list of media according to list of entered choices of movies/series in your preferred language using <strong>Python</strong> and <strong>Flask</strong> for backend and <strong>HTML</strong>, <strong>CSS</strong> and <strong>JavaScript</strong> for frontend.
+This Movie Recommender System is a web application designed to deliver personalized suggestions for films and television shows based on your specific likes. The app recommends a list of media according to the list of entered choices of movies/series in your preferred language.
 </p>
 
  # This web-app contains 3 main pages:
 - [Home Page](#home-page)
 - [Recommendation Page](#recommendation-page)
 - [Movie Detail Page](#movie-detail-page)
-- [Netflix Page](#netflix-page)
+
 
 ## Home Page
-Here the user can choose list of their favourite movies and series and their preferred language. For example, I have entered a list with 2 Horror Movies(Insidious and Insidious Chapter 2), an action series(Supergirl) and a drama series(Suits) as my list of choices and English and Hindi as my preferred languages.
-Clicking on the Get Started button the user will see the list of recommendations.
+
+Here, users can select a list of their favourite movies and series along with their preferred language. For instance, user want to choose two horror movies (like "Insidious" and "Insidious Chapter 2"), an action series (such as "Supergirl"), and a drama series (like "Suits"), and specify English and Hindi as per their preferred languages. Upon clicking the "Get Started" button, users will be presented with a list of personalized recommendations.
 ![](/app/static/screenshots/Screenshot-HomePage.png)
 
 ## Recommendation Page
-Here the user will get poster images of all the recommended movies and series sorted based upon their IMDb Scores.
+Here, users will receive poster images of all the recommended movies and series, sorted based on their IMDb scores.
 ![](/app/static/screenshots/Screenshot-RecommendationPage1.png)
 ![](/app/static/screenshots/Screenshot-RecommendationPage2.png)
 
-Clicking on any poster image, the user will be sent to the Movie Details page for the corresponding title.
+Clicking on any poster image will redirect the user to the Movie Details page for the corresponding title.
 
-## Movie Detail Page
-Here are the complete details of the user selected title like Genre, Movie Summary, Languages in which movie is available, IMDb scores, Directors, Writers and Actors and so on. User will also find a link at the end of the page for the NEtflix Page of the corresponding title. 
+## Movie/Series Detail Page
+Here are the complete details of the user-selected title, including genre, movie/series summary, languages in which the movie/series is available, IMDb scores, directors, writers, actors, and more. Users will also find a link at the end of the page to the Netflix page of the corresponding title. 
 ![](/app/static/screenshots/Screenshot-MovieDetailPage1.png)
-![](/app/static/screenshots/Screenshot-MovieDetailPage2.png)
 
-## Netflix Page
-This page is not a part of my web-app but an example what the user will see as the Netflix Page if they choose to click on the Netflix Link for the title.
-You can login into your Netflix account and enjoy watching your selected movie or series from our recommendations.
-![](/app/static/screenshots/Screenshot-NetflixPage.png)
+# Features
+
+- **Personalized Recommendations:** Utilizes machine learning algorithms to generate personalized recommendations based on user preferences.
+  
+- **User Input:** Users can input a list of their favorite movies, and the system will recommend similar movies available on Netflix.
+  
+- **Netflix Integration:** Recommends movies available on Netflix, leveraging its extensive collection of titles.
+  
+- **Python and Flask:** Built using Python programming language and Flask web framework for backend development.
+  
+# Future Upgrades
+- **Real-Time Updates:** Implement a mechanism to fetch real-time data from Netflix's API or other streaming platforms to ensure that the recommendations are always up-to-date with the latest releases and user ratings.
+
+- **Sentiment Analysis:** Integrate sentiment analysis techniques to analyze user reviews and feedback on movies, providing insights into the emotional response to each recommendation and enhancing the recommendation algorithm.
+
+- **Sentiment Analysis:** Integrate sentiment analysis techniques to analyze user reviews and feedback on movies, providing insights into the emotional response to each recommendation and enhancing the recommendation algorithm.
+
+- **Localized Recommendations:** Customize recommendations based on the user's location or language preferences, taking into account regional content availability and cultural differences in movie preferences.
+
+-  **Integration with Other Streaming Platforms:** Extend the system to recommend movies from other streaming platforms such as Amazon Prime Video, Disney Hotstar etc.
+
 
 # How To Use
 
@@ -41,31 +58,34 @@ To be able to use this web app locally in a development environment you will nee
 
 ```cmd
 # Clone this repository
-git clone https://github.com/garg-priya-creator/Netflix-Recommendation-System.git
+git clone https://github.com/TheChirag356/Movie-Recommendation
 
 # Go into the repository
-cd netflix-recommendation-system
+cd Movie-Recommendation
 
-# Install flask (if you already haven't)
-pip install flask
+# Install all  (if you already haven't)
+pip install -r requirements.txt
 
 ```
 3) To run this application you don't need to have any special configuration but make sure you don't change the directory of the project otherwise you can recieve errors while you try to run the app.
 
 4) You can run the Netflix React App using the following command from your terminal:
 
-```
+```bash
 # Run the app
->>set FLASK_APP=app.py
->>flask run
+python app.py
 ```
 
-# Author
+# Team
+Anushka([@anushka](https://github.com/anushka-mazumdar))
 
-👤 **Priya Garg**
-- Github: https://github.com/garg-priya-creator
-- Linkedin: https://www.linkedin.com/in/priya-garg-9220381b3
-- Email: priyagarg072@gmail.com
+Chirag Arora([@chiragarora](https://github.com/TheChirag356)) 
+
+Himanshi Gupta([@himanshigupta](https://github.com/Himanshigupta1624))
+
+Krishan Mittal([@krishanmittal](https://github.com/Krishan098))
+
+
 
 # Show Your Support 
 

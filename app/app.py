@@ -3,10 +3,11 @@ from flask import Flask, render_template, request
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from urllib.parse import quote
 
 def prepare_data(x):
         return str.lower(x.replace(" ", ""))
-
+ 
 def create_soup(x):
     return x['Genre'] + ' ' + x['Tags'] + ' ' +x['Actors']+' '+ x['ViewerRating']
 
@@ -77,8 +78,11 @@ def getvalue():
 def movie_details(name):
     global df
     details_list = df[df['Title'] == name].to_numpy().tolist()
+    if not details_list:  # Check if details_list is empty
+        return render_template('pagenotfound.html')  # Return an error message and a 404 status code   
     return render_template('moviepage.html', details = details_list[0])
+    # return render_template('moviepage.html', details = quote(details_list[0], safe='', encoding=None, errors=None))
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

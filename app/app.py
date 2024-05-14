@@ -19,26 +19,26 @@ def get_recommendations(title, cosine_sim):
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:51]
     movie_indices = [i[0] for i in sim_scores]
-    result =  netflix_data.iloc[movie_indices]
+    result =  model_data.iloc[movie_indices]
     result.reset_index(inplace = True)
     return result
 
-netflix_data = pd.read_csv('NetflixDataset.csv',encoding='latin-1', index_col = 'Title')
-netflix_data.index = netflix_data.index.str.title()
-netflix_data = netflix_data[~netflix_data.index.duplicated()]
-netflix_data.rename(columns={'View Rating':'ViewerRating'}, inplace=True)
-Language = netflix_data.Languages.str.get_dummies(',')
+model_data = pd.read_csv('Dataset.csv',encoding='latin-1', index_col = 'Title')
+model_data.index = model_data.index.str.title()
+model_data = model_data[~model_data.index.duplicated()]
+model_data.rename(columns={'View Rating':'ViewerRating'}, inplace=True)
+Language = model_data.Languages.str.get_dummies(',')
 Lang = Language.columns.str.strip().values.tolist()
 Lang = set(Lang)
-Titles = set(netflix_data.index.to_list())
+Titles = set(model_data.index.to_list())
 
-netflix_data['Genre'] = netflix_data['Genre'].astype('str')
-netflix_data['Tags'] = netflix_data['Tags'].astype('str')
-netflix_data['IMDb Score'] = netflix_data['IMDb Score'].apply(lambda x: 6.6 if math.isnan(x) else x)
-netflix_data['Actors'] = netflix_data['Actors'].astype('str')
-netflix_data['ViewerRating'] = netflix_data['ViewerRating'].astype('str')
+model_data['Genre'] = model_data['Genre'].astype('str')
+model_data['Tags'] = model_data['Tags'].astype('str')
+model_data['IMDb Score'] = model_data['IMDb Score'].apply(lambda x: 6.6 if math.isnan(x) else x)
+model_data['Actors'] = model_data['Actors'].astype('str')
+model_data['ViewerRating'] = model_data['ViewerRating'].astype('str')
 new_features = ['Genre', 'Tags', 'Actors', 'ViewerRating']
-selected_data = netflix_data[new_features]
+selected_data = model_data[new_features]
 for new_feature in new_features:
     selected_data.loc[:, new_feature] = selected_data.loc[:, new_feature].apply(prepare_data)
 selected_data.index = selected_data.index.str.lower()

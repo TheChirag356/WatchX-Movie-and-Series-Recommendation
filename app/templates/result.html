@@ -14,9 +14,12 @@
   <!-- tailwind styles -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for( 'static', filename='assets/favicon/apple-touch-icon.png') }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for( 'static', filename='assets/favicon/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for( 'static', filename='assets/favicon/favicon-16x16.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="{{ url_for( 'static', filename='assets/favicon/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="{{ url_for( 'static', filename='assets/favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="{{ url_for( 'static', filename='assets/favicon/favicon-16x16.png') }}">
   <link rel="manifest" href="{{ url_for( 'static', filename='assets/favicon/site.webmanifest') }}">
 
   <style>
@@ -47,21 +50,35 @@
       <h1 class="title">Here are your recommendations...</h1>
     </section>
 
-    <div class="reveal mx-5 my-5 image-wrapper">
+    <div class="reveal mx-5 my-5 image-wrapper images">
       {% for image in images %}
-      <a href='/moviepage/{{titles[loop.index0]}}'><img src="{{image}}" width=250px height=400px /></a>
+      <a href='/moviepage/{{titles[loop.index0]}}' class=""><img src="{{image}}" width=250px height=400px /></a>
       {% endfor %}
     </div>
 
   </div>
 
-
-
-
   <script>
+    function addClassToImages() {
+      var images = document.querySelectorAll('.image-wrapper img');
+      images.forEach(function (image, index) {
+        image.classList.add('reveal' + index);
+      });
+    }
+
+    // Call the function when the DOM content is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      addClassToImages();
+    });
+
+    for (let i = 0; i < 10; i++) {
+      ScrollReveal().reveal('.reveal' + i, {
+        delay: 100 * i
+      });
+    }
+
     ScrollReveal().reveal('.reveal');
   </script>
-
 
 </body>
 

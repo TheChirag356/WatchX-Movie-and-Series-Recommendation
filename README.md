@@ -1,13 +1,20 @@
-<h1 align="center">Netflix-Recommendation-System</h1>
-<p><font size="3">
+<div style="text-align:center;">
+    <img src="app/static/assets/images/watchX.png" />
+</div>
+
+<p>
 A web-app which can be used to get recommendations for a series/movie, the app recommends a list of media according to list of entered choices of movies/series in your preferred language using <strong>Python</strong> and <strong>Flask</strong> for backend and <strong>HTML</strong>, <strong>CSS</strong> and <strong>JavaScript</strong> for frontend.
 </p>
 
  # This web-app contains 3 main pages:
-- [Home Page](#home-page)
-- [Recommendation Page](#recommendation-page)
-- [Movie Detail Page](#movie-detail-page)
-- [Netflix Page](#netflix-page)
+- [This web-app contains 3 main pages:](#this-web-app-contains-3-main-pages)
+  - [Home Page](#home-page)
+  - [Recommendation Page](#recommendation-page)
+  - [Movie Detail Page](#movie-detail-page)
+  - [Netflix Page](#netflix-page)
+- [How To Use](#how-to-use)
+- [Team](#team)
+- [Show Your Support](#show-your-support)
 
 ## Home Page
 Here the user can choose list of their favourite movies and series and their preferred language. For example, I have entered a list with 2 Horror Movies(Insidious and Insidious Chapter 2), an action series(Supergirl) and a drama series(Suits) as my list of choices and English and Hindi as my preferred languages.
@@ -39,33 +46,40 @@ To be able to use this web app locally in a development environment you will nee
 
 2) Then From your terminal, you should do the following:
 
-```cmd
+```bash
 # Clone this repository
-git clone https://github.com/garg-priya-creator/Netflix-Recommendation-System.git
+git clone https://github.com/TheChirag356/WatchX-Movie-and-Series-Recommendation.git
 
 # Go into the repository
-cd netflix-recommendation-system
+cd WatchX-Movie-and-Series-Recommendation
+
+# Start the virtual environment - Windows
+.\venv\Scripts\activate
 
 # Install flask (if you already haven't)
-pip install flask
+pip install -r requirements.txt
 
 ```
 3) To run this application you don't need to have any special configuration but make sure you don't change the directory of the project otherwise you can recieve errors while you try to run the app.
 
-4) You can run the Netflix React App using the following command from your terminal:
+4) You can run the Flask App using the following command from your terminal:
 
-```
+``` bash
 # Run the app
->>set FLASK_APP=app.py
->>flask run
+cd app
+flask run
 ```
 
-# Author
+# Team
+Anushka([@anushka](https://github.com/anushka-mazumdar))
 
-👤 **Priya Garg**
-- Github: https://github.com/garg-priya-creator
-- Linkedin: https://www.linkedin.com/in/priya-garg-9220381b3
-- Email: priyagarg072@gmail.com
+Chirag Arora([@chiragarora](https://github.com/TheChirag356)) 
+
+Himanshi Gupta([@himanshigupta](https://github.com/Himanshigupta1624))
+
+Krishan Mittal([@krishanmittal](https://github.com/Krishan098))
+
+
 
 # Show Your Support 
 

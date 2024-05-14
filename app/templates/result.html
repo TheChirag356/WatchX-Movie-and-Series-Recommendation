@@ -16,12 +16,6 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
 
-  <style>
-    * {
-      font-family: "Poppins";
-    }
-  </style>
-
 </head>
 
 <body class="bg-scroll dark:bg-black">
@@ -32,7 +26,10 @@
   </header>
 
   {% for image in images %}
-    <a href='/moviepage/{{titles[loop.index0]}}'><img src="{{image}}" width=250px height=400px /></a>
+    <a href='/moviepage/{{ titles[loop.index0] }}'><img src="{{image}}" width=250px height=400px /></a>
+  {% endfor %}
+  {% for image in images %}
+    <a href='/moviepage/{{ titles[loop.index0] }}'><img src="{{image}}" width=250px height=400px /></a>
   {% endfor %}
 
   <div

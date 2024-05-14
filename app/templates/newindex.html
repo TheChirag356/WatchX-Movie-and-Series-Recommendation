@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchX - Movie & Web Series Recommendation</title>
+
+    <!-- daisyUI styles -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- bulma styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+
+    <!-- tailwind styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            margin: 0;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <!-- <nav class="flex flex-row flex-nowrap items-center justify-center py-3">
+        <div class=""><a href="" class="btn btn-ghost text-xl">WatchX</a></div>
+        <div class="flex flex-row justify-center">
+        </div>
+
+    </nav> -->
+
+    <nav class="level py-3">
+        <div class="level-item has-text-centered">
+            <a href="" class="btn btn-ghost text-xl">WatchX</a>
+        </div>
+        <!-- <div class="level-right">
+            <div class="level-item">
+                <div class="field has-addons">
+                    <p class="control">
+                        <input class="input" type="text" placeholder="Find a post" />
+                    </p>
+                    <p class="control">
+                        <button class="button">Search</button>
+                    </p>
+                </div>
+            </div>
+        </div> -->
+    </nav>
+
+    <div class="space-y-5 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl text-white font-extrabold mx-auto md:text-5xl">
+            Movie & Web Series Recommendation
+        </h2>
+        <p class="max-w-2xl mx-auto text-gray-500">
+            A web-app which can be used to get recommendations for a series/movie, the app recommends a list
+            of media according to list of entered choices of movies/series in your preferred language using
+            <strong>Python</strong> and <strong>Flask</strong> for backend and <strong>HTML</strong>,
+            <strong>CSS</strong> and <strong>JavaScript</strong> for frontend.
+        </p>
+    </div>
+
+    <div class="space-y-5 max-w-4xl mx-auto text-center">
+        <form name="passdata" action="/about" method="post">
+            <fieldset>
+                <!-- <div class="mb-3">
+                    <label class="form-label text-slate-200">Select atleast 4 TV Show/Movie Names that
+                        you like</label>
+                    <select class="form-select" name="titles" multiple id="titles">
+                        {% for title in titles %}
+                        <option value="{{title}}">{{title}}</option>
+                        {% endfor %}
+                    </select>
+                {{ form.csrf_token }}
+                    {{ form.choices }}
+                </div> -->
+                <!-- <div class="mb-3">
+                    <label class="form-label text-slate-200">Select Languages that you prefer:</label>
+                    <select class="form-select" name="languages" multiple id="languages">
+                        {% for language in languages %}
+                        <option value="{{language}}">{{language}}</option>
+                        {% endfor %}
+                    </select>
+                </div> -->
+                <button type="submit" class="btn btn-primary">Get Started</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        <aside>
+          <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+        </aside>
+      </footer> -->
+
+
+    <div
+        class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+    </div>
+
+</body>
+
+</html>

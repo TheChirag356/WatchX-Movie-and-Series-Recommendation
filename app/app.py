@@ -1,9 +1,11 @@
 import math
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from urllib.parse import quote
+from flask_wtf import FlaskForm
+from wtforms_alchemy import QuerySelectMultipleField
 
 def prepare_data(x):
         return str.lower(x.replace(" ", ""))
@@ -23,7 +25,7 @@ def get_recommendations(title, cosine_sim):
     result.reset_index(inplace = True)
     return result
 
-netflix_data = pd.read_csv('app/NetflixDataset.csv',encoding='latin-1', index_col = 'Title')
+netflix_data = pd.read_csv('NetflixDataset.csv',encoding='latin-1', index_col = 'Title')
 netflix_data.index = netflix_data.index.str.title()
 netflix_data = netflix_data[~netflix_data.index.duplicated()]
 netflix_data.rename(columns={'View Rating':'ViewerRating'}, inplace=True)
@@ -55,9 +57,21 @@ df = pd.DataFrame()
 
 app = Flask(__name__)
 
+class MyForm(FlaskForm):
+    # choices = QuerySelectMultipleField(query_factory=lambda: Titles, allow_blank=False)
+    choices = QuerySelectMultipleField("Choices")
+
 @app.route('/')
+@app.route('/home')
 def index():
-    return render_template('index.html', languages = Lang, titles = Titles) 
+    form = MyForm()
+    form.choices.query = Titles
+
+    form2 = MyForm()
+    form2.choices.query = Lang
+
+    return render_template('newindex.html', languages = Lang, titles = Titles, form=form, form2=form2) 
+    # return render_template('newindex.html', languages = Lang, titles = Titles) 
 
 @app.route('/about',methods=['POST'])
 def getvalue():
@@ -74,6 +88,7 @@ def getvalue():
     titles = df['Title'].tolist()
     return render_template('result.html',  titles =  titles, images = images)
 
+
 @app.route('/moviepage/<name>')
 def movie_details(name):
     global df
@@ -85,4 +100,6 @@ def movie_details(name):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.debug = True
+    app.run()
+    # print(Lang)

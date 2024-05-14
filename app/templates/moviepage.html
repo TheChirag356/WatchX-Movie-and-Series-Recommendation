@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{details[0]}}</title>
+    <!-- bulma styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+
+    <!-- tailwind styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for( 'static', filename='assets/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for( 'static', filename='assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for( 'static', filename='assets/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for( 'static', filename='assets/favicon/site.webmanifest') }}">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 1.25% 0 0 2.5%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="section">
+        <h1 class="title">Here are your selected movie details....</h1>
+    </section>
+    <div class="flex flex-row justify-center gap-20 items-start">
+        <div class="order-1 reveal1">
+            <img src="{{details[21]}}" alt="{{details[0]}}" width=300px height=400px class="reveal" />
+        </div>
+        <div class="order-2 reveal2">
+            <div class="movie-description">
+                <span>{{details[19]}}</span>
+                <h2>{{details[0]}}</h2>
+                <p>{{details[18]}}</p>
+            </div>
+            <div class="movie-details">
+                <span>
+                    <p1>Genre:</p1> {{details[1]}}
+                </span><br>
+                <span>
+                    <p1>Available Languages:</p1> {{details[3]}}
+                </span><br>
+                <span>
+                    <p1>Available in Countries:</p1> {{details[4]}}
+                </span><br>
+                <span>
+                    <p1>IMDb Score:</p1> {{details[10]}}
+                </span><br>
+                <span>
+                    <p1>Viewers Rating:</p1> {{details[9]}}
+                </span><br>
+            </div>
+            <div class="movie-details">
+                <span>
+                    <p1>Director(s):</p1> {{details[6]}}
+                </span><br><br>
+                <span>
+                    <p1>Writer(s):</p1> {{details[7]}}
+                </span><br>
+                <span>
+                    <p1>Acting Cast:</p1> {{details[8]}}
+                </span><br>
+                <span>
+                    <p1>Production House(s):</p1> {{details[16]}}
+                </span><br>
+                <span>
+                    <p1>Boxoffice Collection:</p1> {{details[13]}}
+                </span><br>
+                <span>
+                    <p1>Nominated for Awards:</p1> {{details[12]}}
+                </span><br>
+                <span>
+                    <p1>Awards Won:</p1> {{details[11]}}
+                </span><br>
+            </div>
+            <div>
+                <a href="{{details[17]}}">Netflix Link</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        ScrollReveal().reveal('.reveal1');
+        ScrollReveal().reveal('.reveal2', { delay: 500 });
+    </script>
+</body>
+
+</html>

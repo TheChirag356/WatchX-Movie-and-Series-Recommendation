@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchX - Movie & Web Series Recommendation</title>
+
+    <!-- daisyUI styles -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- bulma styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+
+    <!-- tailwind styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for( 'static', filename='assets/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for( 'static', filename='assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for( 'static', filename='assets/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for( 'static', filename='assets/favicon/site.webmanifest') }}">
+
+    <style>
+        * {
+            margin: 0;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <!-- <nav class="flex flex-row flex-nowrap items-center justify-center py-3">
+        <div class=""><a href="" class="btn btn-ghost text-xl">WatchX</a></div>
+        <div class="flex flex-row justify-center">
+        </div>
+
+    </nav> -->
+
+    <nav class="level py-3">
+        <div class="level-item has-text-centered">
+            <a href="\home" class="btn btn-ghost text-xl">WatchX</a>
+        </div>
+        <!-- <div class="level-right">
+            <div class="level-item">
+                <div class="field has-addons">
+                    <p class="control">
+                        <input class="input" type="text" placeholder="Find a post" />
+                    </p>
+                    <p class="control">
+                        <button class="button">Search</button>
+                    </p>
+                </div>
+            </div>
+        </div> -->
+    </nav>
+
+    <div class="space-y-5 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl text-white font-extrabold mx-auto md:text-5xl">
+            Movie & Web Series Recommendation
+        </h2>
+        <p class="max-w-2xl mx-auto text-gray-500">
+            A web-app which can be used to get recommendations for a series/movie, the app recommends a list
+            of media according to list of entered choices of movies/series in your preferred language using
+            <strong>Python</strong> and <strong>Flask</strong> for backend and <strong>HTML</strong>,
+            <strong>CSS</strong> and <strong>JavaScript</strong> for frontend.
+        </p>
+    </div>
+    <br>
+
+    <div class="space-y-5 max-w-4xl mx-auto text-center">
+        <form name="passdata" action="/about" method="post">
+            <p>Select atleast 4 TV Show/Movie Names that you like: </p>
+            <select name="titles" multiple id="titles" class="is-multiple">
+                {% for title in titles %}
+                <option value="{{ title }}">{{title}}</option>"
+                {% endfor %}
+            </select>
+            <br>
+            <p>Select Languages that you prefer: </p>
+            <select name="languages" multiple id="languages">
+                {% for language in languages %}
+                <option value="{{ language }}">{{language}}</option>"
+                {% endfor %}
+            </select>
+            <br>
+            <button type="submit" class="btn btn-primary m-2">Get Started</button>
+        </form>
+    </div>
+
+    <!-- <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        <aside>
+          <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+        </aside>
+      </footer> -->
+
+
+    <div
+        class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+    </div>
+
+    <script>
+        // Function to convert select options to custom checkboxes
+        function convertSelectToCheckboxes(selectId, containerId) {
+            var select = document.getElementById(selectId);
+            var container = document.getElementById(containerId);
+
+            for (var i = 0; i < select.options.length; i++) {
+                var option = select.options[i];
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = select.name;
+                checkbox.value = option.value;
+                checkbox.id = selectId + '_' + i;
+
+                var label = document.createElement('label');
+                label.htmlFor = checkbox.id;
+                label.appendChild(document.createTextNode(option.text));
+
+                checkbox.addEventListener('change', function () {
+                    if (this.checked) {
+                        select.querySelector('option[value="' + this.value + '"]').selected = true;
+                    } else {
+                        select.querySelector('option[value="' + this.value + '"]').selected = false;
+                    }
+                });
+
+                container.appendChild(checkbox);
+                container.appendChild(label);
+            }
+        }
+
+        // Call the function to convert both multi-select dropdowns to custom checkboxes
+        convertSelectToCheckboxes('titles', 'custom-titles');
+        convertSelectToCheckboxes('languages', 'custom-languages');
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recommendations</title>
+
+  <!-- scroll reveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- bulma styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+
+  <!-- tailwind styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for( 'static', filename='assets/favicon/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for( 'static', filename='assets/favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for( 'static', filename='assets/favicon/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url_for( 'static', filename='assets/favicon/site.webmanifest') }}">
+
+  <style>
+    .image-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      /* Adjust the gap between images as needed */
+    }
+
+    .image-wrapper a {
+      text-decoration: none;
+    }
+
+    .image-wrapper img {
+      width: 250px;
+      height: 400px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div>
+
+    <section class="section">
+      <h1 class="title">Here are your recommendations...</h1>
+    </section>
+
+    <div class="reveal mx-5 my-5 image-wrapper">
+      {% for image in images %}
+      <a href='/moviepage/{{titles[loop.index0]}}'><img src="{{image}}" width=250px height=400px /></a>
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+
+
+  <script>
+    ScrollReveal().reveal('.reveal');
+  </script>
+
+
+</body>
+
+</html>
